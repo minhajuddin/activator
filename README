@@ -1,7 +1,13 @@
-Activator
+Activator (A system used by *normal* users)
 =========
+ - Process should run as a normal user
  - An event should be able to trigger a script
  - An event can be
     - a time
     - a ping on a socket?
     - a file creation?
+
+  - Alternatives which work partially
+    - upstart
+    - cron
+    - init.d
