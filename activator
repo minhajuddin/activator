@@ -1,3 +1,30 @@
 #!/usr/bin/env ruby
+require 'rubygems'
+require 'libnotify'
 
-puts 'activator activated'
+#this script gets executed every minute
+
+def active?(criteria)
+  true
+end
+
+def act(action, &block)
+  if action[:message]
+    Libnotify.show( :body => action[:message], :summary => "Alarm", :timeout => 2.5, :icon_path => File.join(File.dirname(__FILE__),'../resources/clock.png'))
+  elsif block_given?
+    yield
+  end
+end
+
+def trigger_when(criteria, action={}, &block)
+  if active?(criteria)
+    act(action, &block)
+  end
+end
+
+
+#event declaration
+trigger_when({:day => 7, :time => '10:30'}, {:message => 'Awesome message'})
+trigger_when({:day => 7, :time => '10:30'}) do
+  puts 'awesome stuff happens'
+end

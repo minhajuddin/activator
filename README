@@ -4,3 +4,4 @@ Activator
  - An event can be
     - a time
     - a ping on a socket?
+    - a file creation?
