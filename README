@@ -1,0 +1,6 @@
+Activator
+=========
+ - An event should be able to trigger a script
+ - An event can be
+    - a time
+    - a ping on a socket?
